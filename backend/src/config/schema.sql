@@ -18,6 +18,8 @@ CREATE TABLE users (
     password_hash VARCHAR(255) NOT NULL,
     phone VARCHAR(20),
     role ENUM('CLIENT', 'PROVIDER') NOT NULL DEFAULT 'CLIENT',
+    category VARCHAR(50), -- DOCTOR, SALON, CAR_RENTAL
+    specialization VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -29,6 +31,12 @@ CREATE TABLE services (
     description TEXT,
     duration VARCHAR(50) NOT NULL, -- e.g. "30 mins", "1 hour"
     price DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
+    -- Car Rental / Advanced Fields
+    image_url VARCHAR(255),
+    fuel_type VARCHAR(50),
+    seats INT,
+    duration_unit VARCHAR(20) DEFAULT 'mins', -- 'mins', 'days'
+    vehicle_type VARCHAR(50),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (provider_id) REFERENCES users(id) ON DELETE CASCADE
 );
@@ -65,6 +73,9 @@ CREATE TABLE bookings (
     booking_date DATE NOT NULL,
     start_time TIME NOT NULL,
     end_time TIME NOT NULL,
+    -- Custom Date Range Support
+    start_datetime DATETIME,
+    end_datetime DATETIME,
     status ENUM('PENDING', 'CONFIRMED', 'REJECTED', 'CANCELLED', 'COMPLETED') DEFAULT 'PENDING',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

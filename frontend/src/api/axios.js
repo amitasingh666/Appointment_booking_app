@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:7000/api',
-    // baseURL: 'https://appointment-booking-app-lx7u.onrender.com/api',
+    // baseURL: 'http://localhost:7000/api',
+    baseURL: 'https://appointment-booking-app-lx7u.onrender.com/api',
 });
 
 // Add a request interceptor to add the auth token
