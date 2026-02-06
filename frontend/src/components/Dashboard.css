@@ -1,0 +1,58 @@
+.dashboard-content {
+    min-height: 400px;
+}
+
+.fade-in {
+    animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #3c4043;
+    font-size: 0.95rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    background: #f8f9fa;
+}
+
+.form-input:focus {
+    border-color: #1a73e8;
+    background: #fff;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.15);
+}
+
+.hover-btn {
+    transition: all 0.2s;
+}
+
+.hover-btn:active {
+    transform: translateY(1px);
+}
