@@ -1,6 +1,5 @@
 -- Appointment Booking System Schema
 
--- Disable foreign key checks for dropping tables
 SET FOREIGN_KEY_CHECKS = 0;
 
 DROP TABLE IF EXISTS bookings;
@@ -47,15 +46,15 @@ CREATE TABLE provider_schedules (
     UNIQUE KEY unique_schedule (provider_id, day_of_week)
 );
 
--- 4. Unavailable Dates (Holidays or day-offs)
-CREATE TABLE unavailable_dates (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    provider_id INT NOT NULL,
-    date DATE NOT NULL,
-    reason VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (provider_id) REFERENCES users(id) ON DELETE CASCADE
-);
+-- -- 4. Unavailable Dates (Holidays or day-offs)
+-- CREATE TABLE unavailable_dates (
+--     id INT AUTO_INCREMENT PRIMARY KEY,
+--     provider_id INT NOT NULL,
+--     date DATE NOT NULL,
+--     reason VARCHAR(255),
+--     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+--     FOREIGN KEY (provider_id) REFERENCES users(id) ON DELETE CASCADE
+-- );
 
 -- 5. Bookings (The appointments)
 CREATE TABLE bookings (
