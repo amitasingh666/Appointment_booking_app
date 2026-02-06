@@ -15,6 +15,7 @@ app.use(
     cors({
         origin: [
             "http://localhost:3000",
+            /^https:\/\/.*\.vercel\.app$/
         ],
         methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
         allowedHeaders: ["Content-Type", "Authorization"],
