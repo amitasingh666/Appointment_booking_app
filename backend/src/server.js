@@ -11,17 +11,7 @@ const bookingsRoutes = require("./modules/bookings/bookings.routes");
 
 const app = express();
 
-app.use(
-    cors({
-        origin: [
-            "http://localhost:3000",
-            /^https:\/\/.*\.vercel\.app$/
-        ],
-        methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-        allowedHeaders: ["Content-Type", "Authorization"],
-        credentials: true
-    })
-);
+app.use(cors());
 
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
